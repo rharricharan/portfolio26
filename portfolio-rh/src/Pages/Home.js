@@ -39,7 +39,7 @@ function Home() {
                 <div className="home-page__content">
                     <h1 className="home-page__title">A Maryland based Designer building experiences that feel natural and produce real world results and value.</h1>
                     <a className="home-page__cta" href="/About">
-                        Learn more about Ryan
+                        Get to know Ryan
                     </a>
                 </div>
                 <div className="home-page__project-container">
