@@ -1,15 +1,55 @@
 import './Styles/Home.css';
-    
+import Navigation from '../Components/Navigation';
+import ProjectCard from '../Components/ProjectCard';
+import ExampleShift from '../Assets/example-shift.svg';
+
 function Home() {
+
+    const projects = [
+        { 
+            id: 'project-one',
+            title: 'Shift AI',
+            description: 'Rebuilt the entire app from the ground up',
+            imageUrl: ExampleShift,
+            imageAlt: 'Picture of Shift AI App',
+            projectUrl: '/projects/project-one'
+        },
+        { 
+            id: 'project-two',
+            title: 'Shift AI',
+            description: 'Rebuilt the entire app from the ground up',
+            imageUrl: ExampleShift,
+            imageAlt: 'Picture of Shift AI App',
+            projectUrl: '/projects/project-two'
+        },
+        { 
+            id: 'project-three',
+            title: 'Shift AI',
+            description: 'Rebuilt the entire app from the ground up',
+            imageUrl: ExampleShift,
+            imageAlt: 'Picture of Shift AI App',
+            projectUrl: '/projects/project-three'
+        }
+    ];
+
     return (
-        <main>
-            <nav>
-                <div>
-                    
+        <>
+            <Navigation />
+            <main className="home-page" id="home">
+                <div className="home-page__content">
+                    <h1 className="home-page__title">A Maryland based Designer building experiences that feel natural and produce real world results and value.</h1>
+                    <a className="home-page__cta" href="/About">
+                        Learn more about Ryan
+                    </a>
                 </div>
-            </nav>
-        </main>
-    )
+                <div className="home-page__project-container">
+                    {projects.map((project) => (
+                    <ProjectCard key={project.id} {...project} />
+                    ))}
+                </div>
+            </main>
+        </>
+    );
 }
 
 export default Home;
