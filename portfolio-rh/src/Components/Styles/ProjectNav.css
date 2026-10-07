@@ -1,0 +1,235 @@
+.project-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.project-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  width: 248px;
+  height: 100vh;
+  flex: 0 0 auto;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 20px 12px;
+  border-right: 1px solid #e5e1d8;
+  background: #fbfaf7;
+}
+
+.project-nav__header {
+  display: flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 0 4px 20px;
+}
+
+.project-nav__brand {
+  overflow: hidden;
+  color: #151515;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.project-nav__brand-short,
+.project-nav__short-label {
+  display: none;
+}
+
+.project-nav__collapse {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: #343434;
+  cursor: pointer;
+}
+
+.project-nav__collapse:hover,
+.project-nav__link:hover {
+  background: #eeece6;
+}
+
+.project-nav__chevron {
+  width: 7px;
+  height: 7px;
+  border-top: 1.5px solid currentColor;
+  border-right: 1.5px solid currentColor;
+  transform: rotate(45deg);
+}
+
+.project-layout--minimized .project-nav__chevron {
+  transform: rotate(225deg);
+}
+
+.project-nav__links {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.project-nav__active-indicator {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+  border-radius: 4px;
+  background: #eae7df;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.project-nav__link {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  min-height: 42px;
+  align-items: center;
+  gap: 12px;
+  box-sizing: border-box;
+  padding: 0 12px;
+  border-radius: 4px;
+  color: #4f4e49;
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: color 140ms ease, font-weight 140ms ease;
+}
+
+.project-nav__link--active {
+  color: #151515;
+  font-weight: 700;
+}
+
+.project-nav__link:focus-visible,
+.project-nav__brand:focus-visible,
+.project-nav__collapse:focus-visible,
+.project-nav__mobile-toggle:focus-visible {
+  outline: 2px solid #151515;
+  outline-offset: 3px;
+}
+
+.project-layout--minimized .project-nav__header {
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+
+.project-layout--minimized .project-nav__brand-short,
+.project-layout--minimized .project-nav__short-label {
+  display: inline;
+}
+
+.project-layout--minimized .project-nav__brand-short {
+  opacity: 1;
+  visibility: visible;
+}
+
+.project-layout--minimized .project-nav__brand {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+}
+
+.project-layout--minimized .project-nav__link {
+  justify-content: center;
+  padding: 0;
+}
+
+.project-layout__content {
+  min-width: 0;
+  flex: 1;
+}
+
+.project-nav__backdrop,
+.project-nav__mobile-toggle {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .project-layout {
+    display: block;
+  }
+
+  .project-nav {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: min(280px, calc(100vw - 56px));
+    height: 100vh;
+    padding-top: 64px;
+    transform: translateX(-100%);
+  }
+
+  .project-layout--mobile .project-nav__header {
+    flex-direction: row;
+    padding-bottom: 20px;
+  }
+
+  .project-layout--mobile .project-nav__brand-full,
+  .project-layout--mobile .project-nav__label {
+    display: inline;
+  }
+
+  .project-layout--mobile .project-nav__brand-short,
+  .project-layout--mobile .project-nav__short-label {
+    display: none;
+  }
+
+  .project-layout--mobile .project-nav__brand {
+    display: inline;
+    width: auto;
+    height: auto;
+  }
+
+  .project-layout--mobile .project-nav__link {
+    justify-content: flex-start;
+    padding: 0 12px;
+  }
+
+  .project-nav__backdrop {
+    position: fixed;
+    z-index: 30;
+    display: block;
+    inset: 0;
+    border: 0;
+    background: rgb(21 21 21 / 35%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .project-layout--menu-open .project-nav__backdrop {
+    pointer-events: auto;
+  }
+
+  .project-nav__mobile-toggle {
+    position: fixed;
+    z-index: 50;
+    top: 12px;
+    right: 12px;
+    display: block;
+    min-height: 40px;
+    padding: 0 14px;
+    border: 1px solid #d8d4ca;
+    border-radius: 4px;
+    background: #fbfaf7;
+    color: #151515;
+    font: 600 13px 'Manrope', sans-serif;
+    cursor: pointer;
+  }
+}

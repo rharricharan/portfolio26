@@ -2,6 +2,7 @@ import './Styles/Home.css';
 import Navigation from '../Components/Navigation';
 import ProjectCard from '../Components/ProjectCard';
 import ExampleShift from '../Assets/example-shift.svg';
+import ExampleSmartstop from '../Assets/example-smartstop.svg';
 
 function Home() {
 
@@ -16,11 +17,11 @@ function Home() {
         },
         { 
             id: 'project-two',
-            title: 'Shift AI',
-            description: 'Rebuilt the entire app from the ground up',
-            imageUrl: ExampleShift,
-            imageAlt: 'Picture of Shift AI App',
-            projectUrl: '/projects/project-two'
+            title: 'Smartstop',
+            description: 'Built the entire platform from the ground up',
+            imageUrl: ExampleSmartstop,
+            imageAlt: 'Picture of Smartstop App',
+            projectUrl: '/smartstop'
         },
         { 
             id: 'project-three',
